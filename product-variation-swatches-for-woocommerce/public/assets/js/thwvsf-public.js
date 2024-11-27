@@ -345,6 +345,11 @@ var thwvsf_public = (function($){
 			 		if(opt_val != ''){
 			 			//var $current_opt = form.$form.find("[data-value='" + opt_val + "']");
 			 			var $current_opt = form.$form.find('[data-value="' + opt_val + '"]');
+
+			 			if($current_opt.length == 0){
+			 				$current_opt = form.$form.find('option[value="' + opt_val + '"]');
+			 			}
+			 			
 			 			if($current_opt.length > 0 ){
 			 				$current_opt.removeClass('deactive');
 			 			}else{
