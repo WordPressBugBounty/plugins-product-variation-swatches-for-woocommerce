@@ -53,9 +53,9 @@ class THWVSF_Admin_Swatch_Import_Export {
 				$i = 1;
 
 				foreach ( $attributes as $attribute_name => $attribute ) {
-					
+					// Translators: %d is the attribute number.
 					$column_names[ 'attributes:type' . $i ] = sprintf( __( 'Attribute %d type', 'product-variation-swatches-for-woocommerce' ), $i );
-				
+					// Translators: %d is the attribute number.
 					$column_names[ 'attributes:value_swatch' . $i ] = sprintf( __( 'Attribute %d swatch(s)', 'product-variation-swatches-for-woocommerce'  ), $i );
 					$i++;
 				}

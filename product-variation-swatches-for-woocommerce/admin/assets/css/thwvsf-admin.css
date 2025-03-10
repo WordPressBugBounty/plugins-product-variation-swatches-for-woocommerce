@@ -2073,3 +2073,123 @@ ul.feature-list.star-list li .th-feat-desc{
 	color: #fff;
 }
 
+/*-----------------------------------------
+ *----- SECRET DISCOUNT POPUP - START ---------
+ *-----------------------------------------*/
+
+ .thwvsf-pro-offer{
+    background: url(../images/popup-flyers.png),linear-gradient(90deg,#4410d8 5%,#4e10d8 18%,#6911d8 40%,#9611d9 69%,#cc12d9 100%);
+    width: 100%;
+    height: 212px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-repeat: no-repeat;
+}
+.thwvsf-pro-discount-popup{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    top: 0px;
+    right: 0px;
+}
+.thwvsf-discount-close-btn {
+    background:none;
+    cursor: pointer;
+    border: none;
+}
+a.thwvsf-discount-close-btn:focus {
+    box-shadow: none;
+}
+
+.thwvsf-discount-popup-wrapper {
+    position: relative;
+    width: 500px;
+    height: 400px;
+    background: #fff;
+    border-radius: 20px;
+}
+.thwvsf-discount-popup-close{
+    justify-content: right;
+    display: flex;
+    padding-right: 0.5rem;
+    padding-top: 0.5rem;
+}
+.thwvsf-discount-desc{
+    margin: -0.5rem;
+}
+.thwvsf-discount-desc-first, .thwvsf-discount-desc-last{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23.83px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.thwvsf-discount-exp-date{
+    font-style: normal;
+    font-size: 15px;
+    line-height: 26.31px;
+    text-align: center;
+    color: #000;
+    background: #fff;
+    margin: 0 8rem;
+    width: 50%;
+    border-radius: 3px;
+}
+.thwvsf-discount-desc-middle{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 80.34px;
+    text-align: center;
+    color: #FFFFFF;
+    margin: -2rem;
+}
+.thwvsf-pro-offer-para{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 175.43%;
+    text-align: center;
+    color: #000000;
+    width: 398px;
+}
+.thwvsf-pro-claim-offer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+.claim-discount-btn-div{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.claim-discount-btn{
+    background: #6e55ff;
+    width: 168px;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 166.5%;
+    text-align: center;
+    color: #fff;
+    height: 42px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+ /*-----------------------------------------
+ *----- SECRET DISCOUNT POPUP - END ---------
+ *-----------------------------------------*/
+

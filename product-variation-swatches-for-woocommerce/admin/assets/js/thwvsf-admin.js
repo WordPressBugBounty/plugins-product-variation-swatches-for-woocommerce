@@ -211,6 +211,16 @@ var thwvsf_settings = (function($, window, document) {
     *---- ON-LOAD FUNCTIONS - SATRT ----- 
     *------------------------------------*/
 
+    $(document).ready(function(e){
+		var feature_popup = $(".thwvsf-pro-discount-popup");
+	    var feature_popup_wrapper = $(".thwvsf-pro-discount-popup-wrapper");
+
+	    if (feature_popup.length > 0) {
+	    	$('body').css('overflow','hidden');
+	        feature_popup[0].style.display = "flex";
+	    }
+	});
+
     $(function() {
 
         var settings_div = $('#edittag'),
@@ -423,7 +433,7 @@ var thwvsf_settings = (function($, window, document) {
 
     function populate_color_swatch_terms_html(terms, form){
         var termHtml = '';
-        termHtml += '<tr><td class="terms-label" colspan="3">Set Terms Color</td> </tr>';
+        termHtml += '<tr><td class="terms-label" colspan="3">Set Term Colors</td> </tr>';
         jQuery.each(terms,function(key,value){
 
             termHtml += '<tr>';
@@ -448,7 +458,7 @@ var thwvsf_settings = (function($, window, document) {
             upload_img        = thwvsf_var.upload_image,
             remove_img        = thwvsf_var.remove_image;
 
-        termHtml += '<tr><td class="terms-label" colspan="3">Set Terms Image</td> </tr>';
+        termHtml += '<tr><td class="terms-label" colspan="3">Set Term Images</td> </tr>';
         jQuery.each(terms,function(key,value){
 
             var remove_icon_style = value['image'] ? '' : 'display:none;' ,
@@ -479,7 +489,7 @@ var thwvsf_settings = (function($, window, document) {
 
     function populate_label_swatch_terms_html(terms, form){
         var termHtml = '';
-        termHtml += '<tr><td class="terms-label" colspan="3">Set Terms Label</td> </tr>';
+        termHtml += '<tr><td class="terms-label" colspan="3">Set Term Labels</td> </tr>';
         jQuery.each(terms,function(key,value){
           
             termHtml += '<tr>';

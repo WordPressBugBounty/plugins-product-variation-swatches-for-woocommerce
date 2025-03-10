@@ -89,17 +89,17 @@ class THWVSF_Admin_Settings_General extends THWVSF_Admin_Settings{
 		);
 		return array(
 
-			'auto_convert' => array('type'=>'checkbox', 'name'=>'auto_convert', 'label'=>__('Convert all Dropdown Swatches to Label Swatches', 'product-variation-swatches-for-woocommerce') ,'hint_text' => __('If a label is not provided, the term name will be treated as Label'), 'product-variation-swatches-for-woocommerce', 'value'=>'yes', 'checked'=>0),
+			'auto_convert' => array('type'=>'checkbox', 'name'=>'auto_convert', 'label'=>__('Auto Convert Dropdown to Label/Button Swatches', 'product-variation-swatches-for-woocommerce') ,'hint_text' => __('If a label is not provided, the term name will be treated as Label'), 'product-variation-swatches-for-woocommerce', 'value'=>'yes', 'checked'=>0),
 			
 			'ajax_variation_threshold' => array('type'=>'text', 'name'=>'ajax_variation_threshold', 'label'=>__('Ajax Variation Threshold', 'product-variation-swatches-for-woocommerce'),'value'=>'30','min'=>1,'hint_text'=>__('By default, if the no. of product variations is less than 30, the product availability check is through JavaScript. If greater than 30, the ajax method is used. This field can control the threshold value of 30.', 'product-variation-swatches-for-woocommerce')),
 
-			'clear_select' =>array('name'=>'clear_select', 'label'=>__('Clear On Reselect', 'product-variation-swatches-for-woocommerce'), 'type'=>'checkbox','hint_text'=>'', 'value'=>'yes', 'checked'=>1),
+			'clear_select' =>array('name'=>'clear_select', 'label'=>__('Clear on Reselect', 'product-variation-swatches-for-woocommerce'), 'type'=>'checkbox','hint_text'=>'', 'value'=>'yes', 'checked'=>1),
 
-			'disable_style_sheet' =>array('name'=>'disable_style_sheet', 'label'=>__('Disable Swatches Plugin Stylesheet (For applying the theme default stylesheet)', 'product-variation-swatches-for-woocommerce'), 'type'=>'checkbox','hint_text'=>'', 'value'=>'yes', 'checked'=>0),
+			'disable_style_sheet' =>array('name'=>'disable_style_sheet', 'label'=>__('Disable Swatches Plugin Stylesheet', 'product-variation-swatches-for-woocommerce'), 'type'=>'checkbox','hint_text'=>'For applying the theme default stylesheet', 'value'=>'yes', 'checked'=>0),
 
-			'behavior_for_unavailable_variation' => array('name' => 'behavior_for_unavailable_variation','type' => 'select','options' =>$behaviors,'label' => __('Behavior for Unavailable Variation', 'product-variation-swatches-for-woocommerce'),'value' => 'blur_with_cross' ),
+			'behavior_for_unavailable_variation' => array('name' => 'behavior_for_unavailable_variation','type' => 'select','options' =>$behaviors,'label' => __('Unavailable Variation Behavior', 'product-variation-swatches-for-woocommerce'),'value' => 'blur_with_cross' ),
 
-			'behavior_of_out_of_stock' => array('name' => 'behavior_of_out_of_stock','type' => 'select','options' =>$out_of_stock_behaviour,'label' => __('Behavior for Out of Stock Variation', 'product-variation-swatches-for-woocommerce'),'value' => 'default' ),
+			'behavior_of_out_of_stock' => array('name' => 'behavior_of_out_of_stock','type' => 'select','options' =>$out_of_stock_behaviour,'label' => __('Out of Stock Variation Behavior', 'product-variation-swatches-for-woocommerce'),'value' => 'default' ),
 			'swatches_on_additional_info' => array('name'=>'swatches_on_additional_info', 'label'=>__('Enable Swatches on Additional Info', 'product-variation-swatches-for-woocommerce'), 'type'=>'checkbox','hint_text'=>'', 'value'=>'yes', 'checked'=>0),
 			'show_selected_variation_name' => array('name'=>'show_selected_variation_name', 'label'=>__('Show Selected Variation Name Beside Attribute Label', 'woocommerce-product-variation-swatches'), 'type'=>'checkbox','hint_text'=>'', 'value'=>'yes', 'checked'=>0),
 			'enable_lazy_load' => array('name'=>'enable_lazy_load', 'label'=>__('Enable Lazy Load', 'woocommerce-product-variation-swatches'), 'type'=>'checkbox','hint_text'=>'', 'value'=>'yes', 'checked'=>0),

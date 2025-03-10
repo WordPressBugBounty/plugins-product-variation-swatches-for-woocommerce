@@ -125,11 +125,11 @@ class THWVSF_Admin_Settings_Design extends THWVSF_Admin_Settings {
 			'icon_width' => array('type'=>'text', 'name'=>'icon_width','label'=>__('Icon Width', 'product-variation-swatches-for-woocommerce'),'value'=>'45px'),
 			'icon_shape' => array('type'=>'select', 'name'=>'icon_shape','options' =>$icon_shapes,'label'=>__('Icon Shape', 'product-variation-swatches-for-woocommerce'),'value'=>'square'),
 
-			'common_selection_style'  => array('name'=>'common_selection_style', 'id'=>'common_selection_style' ,'label'=>__('Color,Image Selection Style', 'woocommerce-product-variation-swatches'), 'type'=>'select', 'hint_text'=>__('Selection style apply for swatch type color,image', 'woocommerce-product-variation-swatches'), 'onchange'=>'thwvsfShowcheckStyles(this)','options' => $comn_selctn_style),
+			'common_selection_style'  => array('name'=>'common_selection_style', 'id'=>'common_selection_style' ,'label'=>__('Selection Style (Color, Image)', 'woocommerce-product-variation-swatches'), 'type'=>'select', 'hint_text'=>__('Selection style apply for swatch type color,image', 'woocommerce-product-variation-swatches'), 'onchange'=>'thwvsfShowcheckStyles(this)','options' => $comn_selctn_style),
 			'tick_color' => array('name'=>'tick_color', 'label'=>__('Tick Color', 'woocommerce-product-variation-swatches'), 'type'=>'colorpicker','value' => '#ffffff'),
 			'tick_size' => array('name'=>'tick_size', 'label'=>__('Tick Size', 'woocommerce-product-variation-swatches'), 'type'=>'text','value' => '15px'),
 
-			'label_selection_style'  => array('name'=>'label_selection_style', 'id'=>'label_selection_style' ,'label'=>__('Button/Label Selection Style', 'woocommerce-product-variation-swatches'), 'type'=>'select', 'hint_text'=>__('Selection style apply for swatch type Label/Button', 'woocommerce-product-variation-swatches'),'onchange'=>'thwvsfShowLabelSelectionStyles(this)' ,'options' => $label_selectn_style),
+			'label_selection_style'  => array('name'=>'label_selection_style', 'id'=>'label_selection_style' ,'label'=>__('Selection Style (Button/Label)', 'woocommerce-product-variation-swatches'), 'type'=>'select', 'hint_text'=>__('Selection style apply for swatch type Label/Button', 'woocommerce-product-variation-swatches'),'onchange'=>'thwvsfShowLabelSelectionStyles(this)' ,'options' => $label_selectn_style),
 			'label_background_color_hover' => array('name'=>'label_background_color_hover', 'label'=>__('Background Color on Hover', 'woocommerce-product-variation-swatches'), 'type'=>'colorpicker','value'=>'#ffffff'),
 			'label_text_color_hover' => array('name'=>'label_text_color_hover', 'label'=>__('Text Color on Hover', 'woocommerce-product-variation-swatches'), 'type'=>'colorpicker','value' => '#000000'),
 			'label_background_color_selection' => array('name'=>'label_background_color_selection', 'label'=>__('Background Color on Selection', 'woocommerce-product-variation-swatches'), 'type'=>'colorpicker','value'=>'#000000'),
@@ -146,18 +146,18 @@ class THWVSF_Admin_Settings_Design extends THWVSF_Admin_Settings {
 			'label_background_color' => array('name'=>'label_background_color', 'label'=>__('Background Color', 'product-variation-swatches-for-woocommerce'), 'type'=>'colorpicker', 'required'=>0, 'value' => '#fff'),
 			'label_text_color' => array('name'=>'label_text_color', 'label'=>__('Text Color', 'product-variation-swatches-for-woocommerce'), 'type'=>'colorpicker', 'required'=>0, 'value' => '#000'),
 
-			'enable_swatch_dropdown' =>array('name'=>'enable_swatch_dropdown', 'label'=>__('Enable Swatch DropDown', 'product-variation-swatches-for-woocommerce'), 'type'=>'checkbox','hint_text'=>'', 'value'=>'yes', 'checked'=>0),
+			'enable_swatch_dropdown' =>array('name'=>'enable_swatch_dropdown', 'label'=>__('Enable Swatch DropDown Style', 'product-variation-swatches-for-woocommerce'), 'type'=>'checkbox','hint_text'=>__('The Swatch Dropdown style displays color and image variations in a dropdown with a search option for easy selection.', 'product-variation-swatches-for-woocommerce'), 'value'=>'yes', 'checked'=>0),
 
 			// Tooltip Settings
-			'tooltip_enable' =>array('name'=>'tooltip_enable', 'label'=>__('Enable Tooltip (Attribute term name will be displayed as Tooltip)', 'product-variation-swatches-for-woocommerce'), 'type'=>'checkbox','hint_text'=>'', 'value'=>'yes', 'checked'=>0),
+			'tooltip_enable' =>array('name'=>'tooltip_enable', 'label'=>__('Enable Tooltip', 'product-variation-swatches-for-woocommerce'), 'type'=>'checkbox','hint_text'=> __('Attribute term name will be displayed as Tooltip', 'product-variation-swatches-for-woocommerce'), 'value'=>'yes', 'checked'=>0),
 			'tooltip_text_background_color' => array('name'=>'tooltip_text_background_color', 'label'=>__('Term Name Background Color', 'product-variation-swatches-for-woocommerce'),'type'=>'colorpicker','value' => '#000000'),
 			'tooltip_text_color' => array('name'=>'tooltip_text_color', 'label'=>__('Term Name Text Color', 'product-variation-swatches-for-woocommerce'),'type'=>'colorpicker','value' => '#ffffff'),
 
 			// Active variation Style
 
 			'icon_border_color' => array('name'=>'icon_border_color', 'label'=>__('Border Color', 'product-variation-swatches-for-woocommerce'),'type'=>'colorpicker','value' => '#d1d7da'),
-			'icon_border_color_selected' => array('name'=>'icon_border_color_selected', 'label'=>__('Border Color On Selected', 'product-variation-swatches-for-woocommerce'),'type'=>'colorpicker','value' => '#8b98a6'),
-			'icon_border_color_hover' => array('name'=>'icon_border_color_hover', 'label'=>__('Border Color On Hover', 'product-variation-swatches-for-woocommerce'),'type'=>'colorpicker','value' => '#b7bfc6'),
+			'icon_border_color_selected' => array('name'=>'icon_border_color_selected', 'label'=>__('Border Color', 'product-variation-swatches-for-woocommerce'),'type'=>'colorpicker','value' => '#8b98a6'),
+			'icon_border_color_hover' => array('name'=>'icon_border_color_hover', 'label'=>__('Border Color', 'product-variation-swatches-for-woocommerce'),'type'=>'colorpicker','value' => '#b7bfc6'),
 			
 			// Other settings
 
@@ -411,7 +411,7 @@ class THWVSF_Admin_Settings_Design extends THWVSF_Admin_Settings {
 												<div class="pp-tab-link">
 
 													<div class="tab-icon-element"> <span class="tab-icon icon-border"> </span></div>
-													<span class = "tab-text text-border">Hover and Border Styling</span>
+													<span class = "tab-text text-border">Hover and Selection Styling</span>
 													<img class="thwvs-active-element active-arrow" src="<?php echo THWVSF_ASSETS_URL_ADMIN.'images/tab-arrow.svg'; ?>" />
 											   </div>
 											</li>
@@ -506,6 +506,12 @@ class THWVSF_Admin_Settings_Design extends THWVSF_Admin_Settings {
 						$this->render_form_field_element($this->settings_fields['icon_shape'], $this->cell_props_C);
 						?>							
 					</tr>
+					<tr>
+						<?php
+						$this->render_form_field_element($this->settings_fields['icon_border_color'], $this->cell_props_CP);
+						
+						?>							
+					</tr>
 			
 				</tbody>
 			</table>
@@ -515,32 +521,27 @@ class THWVSF_Admin_Settings_Design extends THWVSF_Admin_Settings {
 
 	private function render_form_tab_hover_and_border_settings(){
 
-		$this->render_form_tab_main_title('Border Styling');
+		$this->render_form_tab_main_title('Hover Style');
 		
 		?>
 		<div style="display: inherit;" class="data-panel-content">
 			<table class="thwvs-pp-table">
 				<tbody>
-					<tr>
-						<?php
-						$this->render_form_field_element($this->settings_fields['icon_border_color'], $this->cell_props_CP);
-						
-						?>							
-					</tr>
+					
 					<tr>
 						<?php
 						$this->render_form_field_element($this->settings_fields['icon_border_color_hover'], $this->cell_props_CP);
 						
 						?>							
 					</tr>
+					
+					<?php $this->render_form_tab_sub_title('Selection Style'); ?>
 					<tr>
 						<?php
 						$this->render_form_field_element($this->settings_fields['icon_border_color_selected'], $this->cell_props_CP);
 						
 						?>							
 					</tr>
-
-					<?php $this->render_form_tab_sub_title('Swatches Selection Style'); ?>
 					<tr>
 						<?php
 						$this->render_form_field_element($this->settings_fields['common_selection_style'], $this->cell_props_S);

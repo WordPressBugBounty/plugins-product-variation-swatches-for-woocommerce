@@ -173,6 +173,7 @@ if(!class_exists('THWVSF_Admin')):
         //add_action( 'admin_notices' ,array($this,'output_sib_form_popup'));
         //add_action( 'admin_footer', array( $this,'sib_form_banner_custom_js') );
         add_action('admin_footer', array($this,'quick_links'));
+        add_action('admin_footer', array($this,'diplay_discount_popup'));
 
         add_action( 'wp_ajax_dismiss_thwvsf_review_request_notice', array($this, 'dismiss_thwvsf_review_request_notice'));
         //add_action( 'wp_ajax_dismiss_thwvsf_sib_form', array($this, 'dismiss_thwvsf_sib_form'));
@@ -2073,6 +2074,78 @@ if(!class_exists('THWVSF_Admin')):
             </div>
         <?php
     }
+
+    public function thwvsf_discount_popup_actions() {
+		$nonce = isset($_GET['thwvsf_discount_popup_nonce']) ? sanitize_text_field( wp_unslash($_GET['thwvsf_discount_popup_nonce'])) : false;
+		if(!wp_verify_nonce($nonce, 'thwvsf_discount_popup_security')){
+			die();
+		}
+		$thwvsf_dissmis_feature_popup = isset($_GET['thwvsf_discount_popup_dismiss']) ? sanitize_text_field( wp_unslash($_GET['thwvsf_discount_popup_dismiss'])) : false;
+		
+		if ($thwvsf_dissmis_feature_popup) {
+			update_user_meta( get_current_user_id(), 'thwvsf_discount_popup' , true);
+		}
+	}
+
+    public function diplay_discount_popup(){
+
+        $now = time();
+        $thwvsf_since = get_option('thwvsf_since');
+        if(!$thwvsf_since){
+            update_option('thwvsf_since', $now, 'no' );
+        }
+        $thwvsf_since = $thwvsf_since ? $thwvsf_since : $now;
+		// $render_time = apply_filters('thwvsf_show_discount_popup_render_time' , 3 * MONTH_IN_SECONDS);
+		$render_time  = apply_filters('thwvsf_show_discount_popup_render_time', 1 * MONTH_IN_SECONDS);
+		$render_time = $thwvsf_since + $render_time;
+		if (isset($_GET['thwvsf_discount_popup_dismiss'])) {
+			$this->thwvsf_discount_popup_actions();
+		}
+		$discount_popup = get_user_meta( get_current_user_id(),'thwvsf_discount_popup', true);
+
+		$show_discount_popup = isset($discount_popup) ? $discount_popup : false;
+		if (!$show_discount_popup && ($now > $render_time)) {
+			$this->secret_discount_popup();
+		}
+    }
+
+    public function secret_discount_popup(){
+		$admin_url  = 'edit.php?post_type=product&page=th_product_variation_swatches_for_woocommerce';
+        $dismiss_url = $admin_url . '&thwvsf_discount_popup_dismiss=true&thwvsf_discount_popup_nonce=' . wp_create_nonce( 'thwvsf_discount_popup_security');
+
+		$url = "https://www.themehigh.com/?edd_action=add_to_cart&download_id=24&cp=lyCDSy_wvs&utm_source=free&utm_medium=premium_tab&utm_campaign=wpvs_upgrade_link";
+
+        $current_screen = get_current_screen();
+       if($current_screen->id !== 'product_page_th_product_variation_swatches_for_woocommerce'){
+            return;
+        } 
+
+		?>
+			<div id="thwvsf-pro-discount-popup" class="thwvsf-pro-discount-popup" style="display:none">
+				<div id="thwvsf-discount-popup-wrapper" class="thwvsf-discount-popup-wrapper">
+					<div class="thwvsf-pro-offer">
+						<div class="thwvsf-discount-popup-close">
+							<a id="thwvsf-discount-close-btn" class="thwvsf-discount-close-btn" href="<?php echo esc_url($dismiss_url); ?>"><img class="close-btn-img-popup" src="<?php echo esc_url(THWVSF_URL .'admin/assets/images/close.svg'); ?>"></a>
+						</div>
+						<div class="thwvsf-discount-desc">
+							<p class="thwvsf-discount-desc-first">Exclusive offer for you.</p>
+							<p class="thwvsf-discount-desc-middle">Flat 50% off</p>
+							<p class="thwvsf-discount-desc-last">on your plan upgrade.</p>
+							<p class="thwvsf-discount-exp-date">Grab it before the offer Ends.</b></p>
+						</div>
+					</div>
+					<div class="thwvsf-pro-claim-offer">
+						<div class="thwvsf-pro-offer-desc">
+							<p class="thwvsf-pro-offer-para">Upgrade to Variation Swatches Pro and transform your product variations! Unlock advanced swatch styles, tooltips, and customization options for a seamless shopping experience that boosts conversions.</p>
+						</div>
+						<div class="claim-discount-btn-div">
+							<a id="claim-discount-btn" class="claim-discount-btn" href="<?php echo esc_url($url); ?>" onclick="thwvsfPopUpClose(this)" target="_blank" rel="noopener noreferrer">Claim Now</a>
+						</div>
+					</div>
+				</div>
+			</div>	
+		<?php
+	}
 
     /*public function sib_form_banner_custom_css(){
         ?>
