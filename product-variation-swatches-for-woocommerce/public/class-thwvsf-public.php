@@ -526,7 +526,7 @@ class THWVSF_Public {
 					
 				}else{
 
-					$html .= '<ul class="thwvsf-wrapper-ul">';
+					$html .= '<ul class="thwvsf-wrapper-ul" role="listbox" aria-label="Swatches options">';
 
 					foreach ( $terms as $term ) {
 
@@ -609,10 +609,26 @@ class THWVSF_Public {
 			$term_settings = isset($local_settings[$name]) ? $local_settings[$name] : '' ;
 			$color         = !empty($term_settings) &&  isset($term_settings['term_value']) ? $term_settings['term_value'] : '';
 		}
+
+		// Determine if this is the first item (for initial tabindex)
+		static $first_item = true;
+		$tabindex = $first_item ? '0' : '-1';
+		$first_item = false;
+		
+		// Set aria-selected based on selection status
+		$aria_selected = $selected ? 'true' : 'false';
        		
 		$html = '
-			<li class="thwvsf-wrapper-item-li thwvsf-color-li thwvsf-div thwvsf-checkbox attribute_'.esc_attr(preg_replace('/[^A-Za-z0-9\-\_]/', '', $id)).' '. esc_attr($attr_class).' '.esc_attr($selected).' '.esc_attr($design_class).' thwvsf-tooltip" data-attribute_name="attribute_'.esc_attr($id).'" data-value="'.esc_attr($data_val).'" title="'.esc_attr($name).'">'.$tt_html.
+			<li class="thwvsf-wrapper-item-li thwvsf-color-li thwvsf-div thwvsf-checkbox attribute_'.esc_attr(preg_replace('/[^A-Za-z0-9\-\_]/', '', $id)).' '. esc_attr($attr_class).' '.esc_attr($selected).' '.esc_attr($design_class).' thwvsf-tooltip" 
+				data-attribute_name="attribute_'.esc_attr($id).'" 
+				data-value="'.esc_attr($data_val).'" 
+				title="'.esc_attr($name).'"
+				role="option"
+				tabindex="'.esc_attr($tabindex).'"
+				aria-selected="'.esc_attr($aria_selected).'"
+				aria-label="'.esc_attr($name).' color option">'.$tt_html.
 				'<span class="thwvsf-item-span thwvsf-item-span-color" style="background-color:'.esc_attr( $color).';"> </span>
+				<span class="th-sr-only">'.esc_html($name).'</span>
 			</li>';
 
 		return $html;
@@ -638,10 +654,28 @@ class THWVSF_Public {
 	        $image = $image ? $image[0] : THWVSF_URL . 'admin/assets/images/placeholder.png';
 	    }
 
+		// Determine if this is the first item (for initial tabindex), modyfy for accessibility
+		// and to ensure the first item is focusable for keyboard navigation.
+		static $first_image_item = true;
+		$tabindex = $first_image_item ? '0' : '-1';
+		$first_image_item = false;
+		
+		// Set aria-selected based on selection status
+		$aria_selected = $selected ? 'true' : 'false';
+
 	    $img_html = $lazy_load === 'yes' ? '<img class="swatch-preview swatch-image lazy"  data-src="'.esc_url($image).' " width="44px" height="44px" alt="'.esc_attr($name).'">' : '<img class="swatch-preview swatch-image "  src="'.esc_url($image).' " width="44px" height="44px" alt="'.esc_attr($name).'">';
 
-	    $html = '<li class="thwvsf-wrapper-item-li thwvsf-image-li thwvsf-div thwvsf-checkbox attribute_'.esc_attr( preg_replace('/[^A-Za-z0-9\-\_]/', '', $id)).' '. esc_attr( $attr_class ).' '. esc_attr( $design_class ).' '.esc_attr( $selected).' thwvsf-tooltip" data-attribute_name="attribute_'.esc_attr( $id).'" data-value="'.esc_attr( $data_val).'" title="'.esc_attr( $name).'" >
+	    $html = '<li class="thwvsf-wrapper-item-li thwvsf-image-li thwvsf-div thwvsf-checkbox attribute_'.esc_attr( preg_replace('/[^A-Za-z0-9\-\_]/', '', $id)).' '. esc_attr( $attr_class ).' '. esc_attr( $design_class ).' '.esc_attr( $selected).' thwvsf-tooltip" 
+				data-attribute_name="attribute_'.esc_attr( $id).'" 
+				data-value="'.esc_attr( $data_val).'" 
+				title="'.esc_attr( $name).'"
+				role="option"
+				tabindex="'.esc_attr($tabindex).'"
+				aria-selected="'.esc_attr($aria_selected).'"
+				aria-label="'.esc_attr($name).' image option"> 
+					
 	    	'.$tt_html.' '.$img_html.'
+			<span class="th-sr-only">'.esc_html($name).'</span>
 	    </li>';	
 
 		return $html;
@@ -673,9 +707,25 @@ class THWVSF_Public {
 			}
 		}
 
-		$html = '<li class="thwvsf-wrapper-item-li thwvsf-label-li thwvsf-div thwvsf-checkbox attribute_'.esc_attr(preg_replace('/[^A-Za-z0-9\-\_]/', '', $id)).' '. esc_attr($attr_class).' '.esc_attr($design_class).' '.esc_attr($selected).' thwvsf-tooltip" data-attribute_name="attribute_'.esc_attr($id).'" data-value="'.esc_attr($data_val).'" title="'.esc_attr($name).'">
+		// Determine if this is the first item (for initial tabindex)
+		static $first_label_item = true;
+		$tabindex = $first_label_item ? '0' : '-1';
+		$first_label_item = false;
+		
+		// Set aria-selected based on selection status
+		$aria_selected = $selected ? 'true' : 'false';
+
+		$html = '<li class="thwvsf-wrapper-item-li thwvsf-label-li thwvsf-div thwvsf-checkbox attribute_'.esc_attr(preg_replace('/[^A-Za-z0-9\-\_]/', '', $id)).' '. esc_attr($attr_class).' '.esc_attr($design_class).' '.esc_attr($selected).' thwvsf-tooltip" 
+					data-attribute_name="attribute_'.esc_attr($id).'" 
+					data-value="'.esc_attr($data_val).'" 
+					title="'.esc_attr($name).'"
+					role="option"
+					tabindex="'.esc_attr($tabindex).'"
+					aria-selected="'.esc_attr($aria_selected).'"
+					aria-label="'.esc_attr($name).' option">
 				'.$tt_html.'
 			<span class=" thwvsf-item-span item-span-text ">'.esc_html($value).'</span>	
+			<span class="th-sr-only">'.esc_html($name).'</span>
 			</li>';
 
 		return $html; 
@@ -685,11 +735,15 @@ class THWVSF_Public {
 
 		//$attr_method = taxonomy_exists( $attribute ) ? 'global'  : 'local';
 		$html  = '';
-		$html .= '<div class="thwvsf-rad-li attribute_'. $id .' '.$design_class.' ">';
+		// Add role="radiogroup" and aria-labelledby for screen readers
+    	$group_label_id = 'thwvsf-group-label-' . esc_attr($id);
+    	$html .= '<div class="thwvsf-rad-li attribute_'. $id .' '.$design_class.' " role="radiogroup" aria-labelledby="'.$group_label_id.'">';
+		$html .= '<span id="'.$group_label_id.'" class="th-sr-only">Select ' . esc_html($attribute) . '</span>';
 
 		if($terms){
 
 			foreach ( $terms as $term ) {
+				$term_count = 0;
 				$name = '';
 				$slug = '';
 				$label = '';
@@ -717,15 +771,32 @@ class THWVSF_Public {
 				$attr_class   = preg_replace('/[^A-Za-z0-9\-\_]/', '', $slug);
 
 				$checked = $selected == 'thwvs-selected' ? 'checked="checked"' : '';
+				// Generate unique IDs for proper label association
+            	$input_id = 'thwvsf-radio-' . esc_attr($id) . '-' . esc_attr($attr_class) . '-' . $term_count;
+            
+            	// Determine if this should be the default focused item (first item or selected item)
+            	$tabindex = ($term_count === 0 || $selected == 'thwvs-selected') ? '0' : '-1';
+
 				$html  .='
-					<label class="th-label-radio th-container attribute_'.esc_attr(preg_replace('/[^A-Za-z0-9\-\_]/', '', $id)).' '. esc_attr($attr_class) .' '. esc_attr($selected) .' '.esc_attr($design_class).'">
+					<label for="'.$input_id.'" class="th-label-radio th-container attribute_'.esc_attr(preg_replace('/[^A-Za-z0-9\-\_]/', '', $id)).' '. esc_attr($attr_class) .' '. esc_attr($selected) .' '.esc_attr($design_class).'">
 						<span class="th-radio-name">
 							<span class="variation-name">'.esc_html($name).'</span>
 						</span>
-						<input type="radio" class="thwvsf-rad"   name="attribute_'.esc_attr($id).'"  value="'.esc_attr($slug).'"  data-attribute_name="attribute_'.esc_attr($id).'" data-value="'.esc_attr($slug).'" '.$checked.'> 
+						<input type="radio" 
+							id="'.$input_id.'"
+							class="thwvsf-rad"   
+							name="attribute_'.esc_attr($id).'" 
+							value="'.esc_attr($slug).'"  
+							data-attribute_name="attribute_'.esc_attr($id).'" 
+							data-value="'.esc_attr($slug).'" 
+							tabindex="'.$tabindex.'"
+							aria-describedby="'.$input_id.'-desc"
+							'.$checked.'> 
 						<span class="checkmark"></span>
+						<span id="'.$input_id.'-desc" class="th-sr-only">'.esc_html($name).' option for '.esc_html($attribute).'</span>
 					</label>'
 				;
+				$term_count++;
 			}
 
 			$html  .= '</div>';
