@@ -5,7 +5,7 @@ Tags: Variation Swatches, Variation Swatches for WooCommerce, WooCommerce Variat
 Requires at least: 5.3
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 2.4.1
+Stable tag: 2.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -377,6 +377,9 @@ Upgrade to the Premium version to display the number of products left in stock. 
 16. Swatches as Dropdown
 
 == Changelog ==
+= 2.4.2 =
+* Added WooCommerce 10.2 compatibility.
+
 = 2.4.1 =
 * Improved accessibility for swatches, Made swatches navigable and selectable using the keyboard (e.g., Tab and arrow keys), ensuring compliance with accessibility standards
 * Added WooCommerce 9.9 compatibility.
