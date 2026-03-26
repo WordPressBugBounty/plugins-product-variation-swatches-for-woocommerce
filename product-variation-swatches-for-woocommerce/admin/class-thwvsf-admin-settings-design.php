@@ -111,32 +111,32 @@ class THWVSF_Admin_Settings_Design extends THWVSF_Admin_Settings {
 		);
 
 		$label_selectn_style = array(
-			'border'            => __('Borders on selection', 'product-variation-swatches-for-woocommerc'),
-			'border_with_tick'  => __('Checkmark with border', 'product-variation-swatches-for-woocommerc'),
-			'background_color'  => __('Background with font color', 'product-variation-swatches-for-woocommerc')
+			'border'            => __('Borders on selection', 'product-variation-swatches-for-woocommerce'),
+			'border_with_tick'  => __('Checkmark with border', 'product-variation-swatches-for-woocommerce'),
+			'background_color'  => __('Background with font color', 'product-variation-swatches-for-woocommerce')
 		);
 
 		return array(
 			//'last_active_tab' => array('type' => 'hidden', 'name'=>'last_active_tab', 'value' => '0'),
 			// Common Attribute Settings
 		
-			'design_name' => array('type'=>'text', 'name'=>'design_name', 'label'=>__('Design Name', 'woocommerce-product-variation-swatches'),'value' => ' '),
+			'design_name' => array('type'=>'text', 'name'=>'design_name', 'label'=>__('Design Name', 'product-variation-swatches-for-woocommerce'),'value' => ' '),
 			'icon_height' => array('type'=>'text', 'name'=>'icon_height', 'value' => '45px','label'=>__('Icon Height', 'product-variation-swatches-for-woocommerce')),
 			'icon_width' => array('type'=>'text', 'name'=>'icon_width','label'=>__('Icon Width', 'product-variation-swatches-for-woocommerce'),'value'=>'45px'),
 			'icon_shape' => array('type'=>'select', 'name'=>'icon_shape','options' =>$icon_shapes,'label'=>__('Icon Shape', 'product-variation-swatches-for-woocommerce'),'value'=>'square'),
 
-			'common_selection_style'  => array('name'=>'common_selection_style', 'id'=>'common_selection_style' ,'label'=>__('Selection Style (Color, Image)', 'woocommerce-product-variation-swatches'), 'type'=>'select', 'hint_text'=>__('Selection style apply for swatch type color,image', 'woocommerce-product-variation-swatches'), 'onchange'=>'thwvsfShowcheckStyles(this)','options' => $comn_selctn_style),
-			'tick_color' => array('name'=>'tick_color', 'label'=>__('Tick Color', 'woocommerce-product-variation-swatches'), 'type'=>'colorpicker','value' => '#ffffff'),
-			'tick_size' => array('name'=>'tick_size', 'label'=>__('Tick Size', 'woocommerce-product-variation-swatches'), 'type'=>'text','value' => '15px'),
+			'common_selection_style'  => array('name'=>'common_selection_style', 'id'=>'common_selection_style' ,'label'=>__('Selection Style (Color, Image)', 'product-variation-swatches-for-woocommerce'), 'type'=>'select', 'hint_text'=>__('Selection style apply for swatch type color,image', 'product-variation-swatches-for-woocommerce'), 'onchange'=>'thwvsfShowcheckStyles(this)','options' => $comn_selctn_style),
+			'tick_color' => array('name'=>'tick_color', 'label'=>__('Tick Color', 'product-variation-swatches-for-woocommerce'), 'type'=>'colorpicker','value' => '#ffffff'),
+			'tick_size' => array('name'=>'tick_size', 'label'=>__('Tick Size', 'product-variation-swatches-for-woocommerce'), 'type'=>'text','value' => '15px'),
 
-			'label_selection_style'  => array('name'=>'label_selection_style', 'id'=>'label_selection_style' ,'label'=>__('Selection Style (Button/Label)', 'woocommerce-product-variation-swatches'), 'type'=>'select', 'hint_text'=>__('Selection style apply for swatch type Label/Button', 'woocommerce-product-variation-swatches'),'onchange'=>'thwvsfShowLabelSelectionStyles(this)' ,'options' => $label_selectn_style),
-			'label_background_color_hover' => array('name'=>'label_background_color_hover', 'label'=>__('Background Color on Hover', 'woocommerce-product-variation-swatches'), 'type'=>'colorpicker','value'=>'#ffffff'),
-			'label_text_color_hover' => array('name'=>'label_text_color_hover', 'label'=>__('Text Color on Hover', 'woocommerce-product-variation-swatches'), 'type'=>'colorpicker','value' => '#000000'),
-			'label_background_color_selection' => array('name'=>'label_background_color_selection', 'label'=>__('Background Color on Selection', 'woocommerce-product-variation-swatches'), 'type'=>'colorpicker','value'=>'#000000'),
-			'label_text_color_selection' => array('name'=>'label_text_color_selection', 'label'=>__('Text Color on Selection', 'woocommerce-product-variation-swatches'), 'type'=>'colorpicker','value' => '#ffffff'),
+			'label_selection_style'  => array('name'=>'label_selection_style', 'id'=>'label_selection_style' ,'label'=>__('Selection Style (Button/Label)', 'product-variation-swatches-for-woocommerce'), 'type'=>'select', 'hint_text'=>__('Selection style apply for swatch type Label/Button', 'product-variation-swatches-for-woocommerce'),'onchange'=>'thwvsfShowLabelSelectionStyles(this)' ,'options' => $label_selectn_style),
+			'label_background_color_hover' => array('name'=>'label_background_color_hover', 'label'=>__('Background Color on Hover', 'product-variation-swatches-for-woocommerce'), 'type'=>'colorpicker','value'=>'#ffffff'),
+			'label_text_color_hover' => array('name'=>'label_text_color_hover', 'label'=>__('Text Color on Hover', 'product-variation-swatches-for-woocommerce'), 'type'=>'colorpicker','value' => '#000000'),
+			'label_background_color_selection' => array('name'=>'label_background_color_selection', 'label'=>__('Background Color on Selection', 'product-variation-swatches-for-woocommerce'), 'type'=>'colorpicker','value'=>'#000000'),
+			'label_text_color_selection' => array('name'=>'label_text_color_selection', 'label'=>__('Text Color on Selection', 'product-variation-swatches-for-woocommerce'), 'type'=>'colorpicker','value' => '#ffffff'),
 
-			'label_tick_color' => array('name'=>'label_tick_color', 'label'=>__('Tick Color', 'woocommerce-product-variation-swatches'), 'type'=>'colorpicker','value' => '#000000'),
-			'label_tick_size' => array('name'=>'label_tick_size', 'label'=>__('Tick Size', 'woocommerce-product-variation-swatches'), 'type'=>'text','value' => '15px'),
+			'label_tick_color' => array('name'=>'label_tick_color', 'label'=>__('Tick Color', 'product-variation-swatches-for-woocommerce'), 'type'=>'colorpicker','value' => '#000000'),
+			'label_tick_size' => array('name'=>'label_tick_size', 'label'=>__('Tick Size', 'product-variation-swatches-for-woocommerce'), 'type'=>'text','value' => '15px'),
 
 			// Label attribute Settings
 
@@ -224,11 +224,11 @@ class THWVSF_Admin_Settings_Design extends THWVSF_Admin_Settings {
 		    				?>
 			    			<div class="thwvs-template-box">
 			    				
-			    				<div class="thwvs-template-name <?php echo $additional_class; ?>">
+			    				<div class="thwvs-template-name <?php echo esc_attr($additional_class); ?>">
 			    						<img class="thwvs-dot-element" src="<?php echo esc_url(THWVSF_ASSETS_URL_ADMIN.'images/dots.svg'); ?>"/>
 			    					<p class="thwvs-label"><?php echo esc_html($label); ?></p>
 			    					<?php $label = htmlspecialchars(addslashes($label), ENT_QUOTES); ?>
-			    				
+			    					<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				    				<div class="thwvs-edit-element" data-block-name="<?php echo esc_attr($key); ?>" onclick='thwvsfEditDesignForm(this,<?php echo $props_json; ?>, "<?php echo $key ; ?>",  "<?php echo ($label) ; ?>")'>
 				    					<span class="icon icon-edit" > </span>
 										
@@ -265,9 +265,9 @@ class THWVSF_Admin_Settings_Design extends THWVSF_Admin_Settings {
 		$result   = $this->save_settings($settings);
 
 		if ($result == true) {
-			echo '<div class="updated notice notice-success is-dismissible thwvs-msg"><p>'. __('Your changes were saved.','woocommerce-product-variation-swatches') .'</p></div>';
+			echo '<div class="updated notice notice-success is-dismissible thwvs-msg"><p>'. esc_html__('Your changes were saved.','product-variation-swatches-for-woocommerce') .'</p></div>';
 		} else {
-			echo '<div class="error notice is-dismissible thwvs-msg"><p>'. __('Your changes were not saved due to an error (or you made none!).','woocommerce-product-variation-swatches') .'</p></div>';
+			echo '<div class="error notice is-dismissible thwvs-msg"><p>'. esc_html__('Your changes were not saved due to an error (or you made none!).','product-variation-swatches-for-woocommerce') .'</p></div>';
 		}
 	}
 
@@ -289,9 +289,9 @@ class THWVSF_Admin_Settings_Design extends THWVSF_Admin_Settings {
 		$result   = $this->save_settings($settings);
 
 		if ($result == true) {
-			echo '<div class="updated notice notice-success is-dismissible thwvs-msg" ><p>'. __('Settings successfully reset.','woocommerce-product-variation-swatches') .'</p></div>';
+			echo '<div class="updated notice notice-success is-dismissible thwvs-msg" ><p>'. esc_html__('Settings successfully reset.','product-variation-swatches-for-woocommerce') .'</p></div>';
 		} else {
-			echo '<div class="error notice is-dismissible thwvs-msg"><p>'. __('Your changes were not saved due to an error (or you made none!).','woocommerce-product-variation-swatches') .'</p></div>';
+			echo '<div class="error notice is-dismissible thwvs-msg"><p>'. esc_html__('Your changes were not saved due to an error (or you made none!).','product-variation-swatches-for-woocommerce') .'</p></div>';
 		}
 	}
 
@@ -393,7 +393,7 @@ class THWVSF_Admin_Settings_Design extends THWVSF_Admin_Settings {
 								<div class="form-pp-content pp-content">
 									<aside>
 										<!-- <span class="pp-close"  onclick="thwvsCloseDesignPopup(this)"> -->
-											<img class="thwvs-close-element pp-close" src="<?php echo THWVSF_ASSETS_URL_ADMIN.'images/popup-arrow.svg'; ?>" onclick="thwvsfCloseDesignPopup(this)"/>
+											<img class="thwvs-close-element pp-close" src="<?php echo esc_url(THWVSF_ASSETS_URL_ADMIN.'images/popup-arrow.svg'); ?>" onclick="thwvsfCloseDesignPopup(this)"/>
 										<!-- </span> -->
 										<side-title class="pp-title">Default Design</side-title>
 										<ul class="pp_nav_tabs">
@@ -403,7 +403,7 @@ class THWVSF_Admin_Settings_Design extends THWVSF_Admin_Settings {
 
 													<div class="tab-icon-element"> <span class="tab-icon icon-common"> </span></div>
 													<span class = "tab-text text-common">Common Attribute Styling</span>
-													<img class="thwvs-active-element active-arrow" src="<?php echo THWVSF_ASSETS_URL_ADMIN.'images/tab-arrow.svg'; ?>" />
+													<img class="thwvs-active-element active-arrow" src="<?php echo esc_url(THWVSF_ASSETS_URL_ADMIN.'images/tab-arrow.svg'); ?>" />
 											   </div>
 											</li>
 
@@ -412,7 +412,7 @@ class THWVSF_Admin_Settings_Design extends THWVSF_Admin_Settings {
 
 													<div class="tab-icon-element"> <span class="tab-icon icon-border"> </span></div>
 													<span class = "tab-text text-border">Hover and Selection Styling</span>
-													<img class="thwvs-active-element active-arrow" src="<?php echo THWVSF_ASSETS_URL_ADMIN.'images/tab-arrow.svg'; ?>" />
+													<img class="thwvs-active-element active-arrow" src="<?php echo esc_url(THWVSF_ASSETS_URL_ADMIN.'images/tab-arrow.svg'); ?>" />
 											   </div>
 											</li>
 
@@ -421,7 +421,7 @@ class THWVSF_Admin_Settings_Design extends THWVSF_Admin_Settings {
 
 													<div class="tab-icon-element"> <span class="tab-icon icon-tooltip"> </span></div>
 													<span class = "tab-text text-tooltip">Tooltip Styling</span>
-													<img class="thwvs-active-element active-arrow" src="<?php echo THWVSF_ASSETS_URL_ADMIN.'images/tab-arrow.svg'; ?>" />
+													<img class="thwvs-active-element active-arrow" src="<?php echo esc_url(THWVSF_ASSETS_URL_ADMIN.'images/tab-arrow.svg'); ?>" />
 											   </div>
 											</li>
 
@@ -430,7 +430,7 @@ class THWVSF_Admin_Settings_Design extends THWVSF_Admin_Settings {
 
 													<div class="tab-icon-element"> <span class="tab-icon icon-specific"> </span></div>
 													<span class = "tab-text text-specific">Swatch Type Specific Styling</span>
-													<img class="thwvs-active-element active-arrow" src="<?php echo THWVSF_ASSETS_URL_ADMIN.'images/tab-arrow.svg'; ?>" />
+													<img class="thwvs-active-element active-arrow" src="<?php echo esc_url(THWVSF_ASSETS_URL_ADMIN.'images/tab-arrow.svg'); ?>" />
 											   </div>
 											</li>
 										
@@ -438,9 +438,9 @@ class THWVSF_Admin_Settings_Design extends THWVSF_Admin_Settings {
 
 										<div class="btn-toolbar">
 										
-											<input type="submit" class="save-btn btn-primary-alt" name="design_save_settings" class="button-primary" value="<?php _e('Save', 'woocommerce-product-variation-swatches'); ?>"/>
+											<input type="submit" class="save-btn btn-primary-alt" name="design_save_settings" class="button-primary" value="<?php echo esc_attr__('Save', 'product-variation-swatches-for-woocommerce'); ?>"/>
 
-											<input type="submit" class="reset-btn btn-primary-alt" name="design_reset_settings" class="button-primary" value="<?php _e('Reset', 'woocommerce-product-variation-swatches'); ?>"   onclick="return confirm('Are you sure you want to reset the Design? all the changes you have made will be reset to its default ');">	
+											<input type="submit" class="reset-btn btn-primary-alt" name="design_reset_settings" class="button-primary" value="<?php echo esc_attr__('Reset', 'product-variation-swatches-for-woocommerce'); ?>"   onclick="return confirm('Are you sure you want to reset the Design? all the changes you have made will be reset to its default ');">	
 											
 										</div>
 									</aside>

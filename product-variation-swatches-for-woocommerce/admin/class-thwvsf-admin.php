@@ -220,7 +220,7 @@ if(!class_exists('THWVSF_Admin')):
         $url = admin_url('admin.php?page=th_woocommerce_product_variation_swatches');
         ?>
         <div class='th-swatch-option-link'>
-            <a href="<?php echo admin_url('edit.php?post_type=product&page=th_product_variation_swatches_for_woocommerce')?>" > <?php esc_html_e('Manage Swatches', 'woocommerce-product-variation-swatches') ?></a>
+            <a href="<?php echo esc_url(admin_url('edit.php?post_type=product&page=th_product_variation_swatches_for_woocommerce'))?>" > <?php esc_html_e('Manage Swatches', 'product-variation-swatches-for-woocommerce') ?></a>
         </div>
         <?php
     }
@@ -510,12 +510,12 @@ if(!class_exists('THWVSF_Admin')):
         }
     }
 
-    public function get_attribute_by_taxonomy($taxonomy){
+    // public function get_attribute_by_taxonomy($taxonomy){
 
-        global $wpdb;
-        $attr = substr( $taxonomy, 3 );
-        $attr = $wpdb->get_row( "SELECT * FROM " . $wpdb->prefix . "woocommerce_attribute_taxonomies WHERE attribute_name = '$attr'" );
-    }
+    //     global $wpdb;
+    //     $attr = substr( $taxonomy, 3 );
+    //     $attr = $wpdb->get_row( "SELECT * FROM " . $wpdb->prefix . "woocommerce_attribute_taxonomies WHERE attribute_name = '$attr'" );
+    // }
 
     public function thwvsf_product_option_terms($attribute_taxonomy, $i ) {
 
@@ -546,7 +546,7 @@ if(!class_exists('THWVSF_Admin')):
                         foreach ( $all_terms as $term ) :
                         
                             $options = ! empty( $options ) ? $options : array();
-
+                            // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
                             echo '<option value="' . esc_attr( $term->term_id ) . '" ' . wc_selected( has_term( absint( $term->term_id ), $taxonomy, $product_id ), true, false ) . '>' . esc_attr( apply_filters( 'woocommerce_product_attribute_term_name', $term->name, $term ) ) . '</option>';
                         endforeach;
                     endif;
@@ -561,12 +561,12 @@ if(!class_exists('THWVSF_Admin')):
              $attr_type = $attribute_taxonomy->attribute_type;
 
             if ( (  $attribute_taxonomy->attribute_type == 'label' || $attribute_taxonomy->attribute_type == 'image' || $attribute_taxonomy->attribute_type == 'color')){ ?>
-                <button class="button fr plus thwvsf_add_new_attribute"  data-attr_taxonomy="<?php echo esc_attr($taxonomy); ?>"  data-attr_type="<?php echo esc_attr($attr_type )?>"  data-dialog_title="<?php printf( esc_html__( 'Add new %s', '' ), esc_attr($attribute_taxonomy->attribute_label ) ) ?>">  <?php esc_html_e( 'Add new', '' ); ?>  </button> 
+                <button class="button fr plus thwvsf_add_new_attribute"  data-attr_taxonomy="<?php echo esc_attr($taxonomy); ?>"  data-attr_type="<?php echo esc_attr($attr_type )?>"  data-dialog_title="<?php printf( esc_html__( 'Add new %s', 'product-variation-swatches-for-woocommerce' ), esc_attr($attribute_taxonomy->attribute_label ) ) ?>">  <?php esc_html_e( 'Add new', 'product-variation-swatches-for-woocommerce' ); ?>  </button> 
 
              <?php  
 
             }else{?>
-                <button class="button fr plus add_new_attribute"><?php esc_html_e( 'Add new', 'woocommerce' ); ?></button> <?php
+                <button class="button fr plus add_new_attribute"><?php esc_html_e( 'Add new', 'product-variation-swatches-for-woocommerce' ); ?></button> <?php
             }
         }
     }
@@ -622,7 +622,7 @@ if(!class_exists('THWVSF_Admin')):
                
                         <h3>
                             <div class="handlediv" title="<?php esc_attr_e( 'Click to toggle', 'woocommerce' ); ?>"></div>
-                            <strong class="attribute_name"><?php echo wc_attribute_label($attribute_name); ?></strong>
+                            <strong class="attribute_name"><?php /** phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped */ echo wc_attribute_label($attribute_name); ?></strong>
                         </h3>
                         <div class="thwvsf_custom_attribute wc-metabox-content  <?php echo 'thwvs-'.esc_attr($attribute_name); ?> hidden">
                             <table cellpadding="0" cellspacing="0">
@@ -643,7 +643,7 @@ if(!class_exists('THWVSF_Admin')):
                                                     foreach ($type_options as $key => $value) { 
                                                         $default = (isset($type) &&  $type == $key) ? 'selected' : '';
                                                         ?>
-                                                        <option value="<?php echo esc_attr($key); ?>" <?php echo $default ?> > <?php echo esc_html($value); ?> </option>
+                                                        <option value="<?php echo esc_attr($key); ?>" <?php echo esc_attr($default); ?> > <?php echo esc_html($value); ?> </option>
                                                     <?php
                                                     }?>
                                                 </select>
@@ -668,7 +668,7 @@ if(!class_exists('THWVSF_Admin')):
 
                                                         $default = (isset($design_type) &&  $design_type == $key) ? 'selected' : '';
                                                         ?>
-                                                        <option value="<?php echo esc_attr($key); ?>" <?php echo $default ?> > <?php echo esc_html($value); ?> </option>
+                                                        <option value="<?php echo esc_attr($key); ?>" <?php echo esc_attr($default); ?> > <?php echo esc_html($value); ?> </option>
                                                     <?php
                                                     }?>
                                                 </select>
@@ -700,8 +700,8 @@ if(!class_exists('THWVSF_Admin')):
                     ?>
                     <div class="inline notice woocommerce-message">
 
-                        <p><?php esc_html_e('No custom attributes added yet.','woocommerce-product-variation-swatches');
-                       esc_html_e(' You can add custom attributes from the', 'woocommerce-product-variation-swatches'); ?> <a onclick="thwvsfTriggerAttributeTab(this)" href="#woocommerce-product-data"><?php  esc_html_e(' Attributes','woocommerce-product-variation-swatches'); ?> </a> <?php esc_html_e('tab','woocommerce-product-variation-swatches'); ?></p>
+                        <p><?php esc_html_e('No custom attributes added yet.','product-variation-swatches-for-woocommerce');
+                       esc_html_e(' You can add custom attributes from the', 'product-variation-swatches-for-woocommerce'); ?> <a onclick="thwvsfTriggerAttributeTab(this)" href="#woocommerce-product-data"><?php  esc_html_e(' Attributes','product-variation-swatches-for-woocommerce'); ?> </a> <?php esc_html_e('tab','product-variation-swatches-for-woocommerce'); ?></p>
                     </div>
                    <?php
                 }
@@ -724,7 +724,7 @@ if(!class_exists('THWVSF_Admin')):
         $attribute_name = sanitize_title($attribute->get_name());
         $display_status = $type == 'label' ?'display: table': 'display: none' ;
         ?>
-        <table class="thwvsf-custom-table thwvsf-custom-table-label" style="<?php echo $display_status ; ?>">
+        <table class="thwvsf-custom-table thwvsf-custom-table-label" style="<?php echo esc_attr($display_status); ?>">
             <?php
             $i= 0;
             foreach ($attribute->get_options() as $term) {
@@ -733,11 +733,11 @@ if(!class_exists('THWVSF_Admin')):
                 ?>
                 <tr class="thwvsf-term-name">
                     <td colspan="2">
-                        <h3 class="thwvsf-local-head <?php echo $open;?>" data-type="<?php echo esc_attr($type); ?>" data-term_name="<?php echo  esc_attr($term); ?>" onclick="thwvsf_open_body(this,event)"><?php echo esc_html($term); ?></h3>
+                        <h3 class="thwvsf-local-head <?php echo esc_attr($open);?>" data-type="<?php echo esc_attr($type); ?>" data-term_name="<?php echo  esc_attr($term); ?>" onclick="thwvsf_open_body(this,event)"><?php echo esc_html($term); ?></h3>
                         <table class="thwvsf-local-body-table">
                             <tbody class="thwvsf-local-body thwvsf-local-body-<?php echo esc_attr($term); ?>" style="<?php echo esc_attr($css); ?>">
                                 <tr> 
-                                    <td width="30%"><?php _e('Term Name', 'product-variation-swatches-for-woocommerce') ?></td>
+                                    <td width="30%"><?php esc_html_e('Term Name', 'product-variation-swatches-for-woocommerce') ?></td>
                                     <td width="70%"><?php echo esc_html($term); ?></td>
                                 </tr>
                                 <tr class="form-field"> 
@@ -775,14 +775,14 @@ if(!class_exists('THWVSF_Admin')):
                 ?>
                 <tr class="thwvsf-term-name">
                     <td colspan="2">
-                        <h3 class="thwvsf-local-head <?php echo $open;?>" data-term_name="<?php echo $term; ?>" onclick="thwvsf_open_body(this,event)"><?php echo esc_html($term); ?></h3>
+                        <h3 class="thwvsf-local-head <?php echo esc_attr($open);?>" data-term_name="<?php echo esc_attr($term); ?>" onclick="thwvsf_open_body(this,event)"><?php echo esc_html($term); ?></h3>
                         <table class="thwvsf-local-body-table">
-                            <tbody class="thwvsf-local-body thwvsf-local-body-<?php echo esc_attr($term); ?>" style="<?php echo $css; ?>">
+                            <tbody class="thwvsf-local-body thwvsf-local-body-<?php echo esc_attr($term); ?>" style="<?php echo esc_attr($css); ?>">
                                 <tr> 
                                     <td width="30%">Term Name</td>
-                                    <td width="70%"><?php echo $term; ?></td>
+                                    <td width="70%"><?php echo esc_html($term); ?></td>
                                 </tr>
-                                <tr class="form-field"> <td><?php _e('Term Image', 'product-variation-swatches-for-woocommerce') ?></td>
+                                <tr class="form-field"> <td><?php esc_html_e('Term Image', 'product-variation-swatches-for-woocommerce') ?></td>
                                     <td>
                                         <?php $term_field = $this->get_custom_fields_settings($post_id,$attribute_name,$term,'term_value'); 
 
@@ -917,11 +917,11 @@ if(!class_exists('THWVSF_Admin')):
             <table>
      
                 <tr>
-                    <td><span><?php _e('Name:', 'product-variation-swatches-for-woocommerce');?></span></td>
+                    <td><span><?php esc_html_e('Name:', 'product-variation-swatches-for-woocommerce');?></span></td>
                     <td><input type="text"  name= "attribute_name" class="thwvsf-class" value="" style="width:225px; height:40px;"/></td>
                 </tr>
                 <tr>
-                    <td><span><?php _e('Color:', 'product-variation-swatches-for-woocommerce');?></span></td>
+                    <td><span><?php esc_html_e('Color:', 'product-variation-swatches-for-woocommerce');?></span></td>
                     <td class="locl-attr-terms">
                         <div class="thwvsf_settings_fields_form thwvs-col-div">
                             <span class="thpladmin-colorpickpreview color_preview"></span>
@@ -1230,14 +1230,14 @@ if(!class_exists('THWVSF_Admin')):
                 <img src="<?php echo esc_url(THWVSF_ASSETS_URL_ADMIN .'images/review-left.png'); ?>" alt="themehigh">
             </div>
             <div class="thwvsf-review-content">
-                <h3><?php esc_html_e('Tell us how it was!', 'woocommerce-product-variation-swatches'); ?></h3>
+                <h3><?php esc_html_e('Tell us how it was!', 'product-variation-swatches-for-woocommerce'); ?></h3>
                 <p><?php  esc_html_e('Thank you for going with our Variation Swatches Plugin. We genuinely treasure your support and we would love to hear about your experience with the plugin to help us improve it. If you’ve enjoyed using our plugin, we kindly request that you take a moment to leave a positive feedback on WordPress &#x2764;&#xfe0f;.'); ?></p>
                 <div class="action-row">
                     <a class="thwvsf-notice-action thwvsf-yes" onclick="window.open('https://wordpress.org/support/plugin/product-variation-swatches-for-woocommerce/reviews/?rate=5#new-post', '_blank')" style="margin-right:16px; text-decoration: none">
                         <?php esc_html_e("Ok, You deserve it", 'product-variation-swatches-for-woocommerce'); ?>
                     </a>
                     <a class="thwvsf-notice-action thwvsf-done" href="<?php echo esc_url($reviewed_url); ?>" style="margin-right:16px; text-decoration: none">
-                        <?php _e('Already, Did', 'product-variation-swatches-for-woocommerce'); ?>
+                        <?php esc_html_e('Already, Did', 'product-variation-swatches-for-woocommerce'); ?>
                     </a>
 
                     <a class="thwvsf-notice-action thwvsf-remind" href="<?php echo esc_url($remind_url); ?>" style="margin-right:16px; text-decoration: none">
@@ -1527,7 +1527,7 @@ if(!class_exists('THWVSF_Admin')):
                         reason_input += '</div>';
                     }else if('reviewlink' == type){
                         reason_input += '<div class="reason-input wpvs-review-link">';
-                        reason_input += '<input type="hidden" value="<?php _e('Upgraded', 'product-variation-swatches-for-woocommerce');?>">';
+                        reason_input += '<input type="hidden" value="<?php esc_html_e('Upgraded', 'product-variation-swatches-for-woocommerce');?>">';
                         reason_input += '</div>';
                     }
 

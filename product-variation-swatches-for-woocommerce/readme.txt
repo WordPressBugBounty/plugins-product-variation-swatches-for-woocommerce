@@ -3,9 +3,9 @@ Contributors: ThemeHigh
 Donate link: https://themehigh.com/
 Tags: Variation Swatches, Variation Swatches for WooCommerce, WooCommerce Variation Swatches, WooCommerce Attributes, WooCommerce Variation
 Requires at least: 5.3
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 2.4.2
+Stable tag: 2.4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -377,6 +377,11 @@ Upgrade to the Premium version to display the number of products left in stock. 
 16. Swatches as Dropdown
 
 == Changelog ==
+= 2.4.3 =
+* Improved overall security and stability.
+* Added WooCommerce 10.6 compatibility.
+* Added WordPress 6.9 compatibility.
+
 = 2.4.2 =
 * Added WooCommerce 10.2 compatibility.
 

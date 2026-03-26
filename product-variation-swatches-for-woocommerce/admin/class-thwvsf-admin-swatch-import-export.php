@@ -577,6 +577,7 @@ class THWVSF_Admin_Swatch_Import_Export {
 			$upload = wc_rest_upload_image_from_url( $url );
 
 			if ( is_wp_error( $upload ) ) {
+				// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
 				throw new Exception( $upload->get_error_message(), 400 );
 			}
 
@@ -584,7 +585,8 @@ class THWVSF_Admin_Swatch_Import_Export {
 
 			if ( ! wp_attachment_is_image( $id ) ) {
 				/* translators: %s: image URL */
-				throw new Exception( sprintf( __( 'Not able to attach "%s".', 'woocommerce-product-variation-swatches' ), $url ), 400 );
+				// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+				throw new Exception( sprintf( esc_html__( 'Not able to attach "%s".', 'product-variation-swatches-for-woocommerce' ), $url ), 400 );
 			}
 
 			// Save attachment source for future reference.
@@ -593,7 +595,8 @@ class THWVSF_Admin_Swatch_Import_Export {
 
 		if ( ! $id ) {
 			/* translators: %s: image URL */
-			throw new Exception( sprintf( __( 'Unable to use image "%s".', 'woocommerce-product-variation-swatches' ), $url ), 400 );
+			// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+			throw new Exception( sprintf( esc_html__( 'Unable to use image "%s".', 'product-variation-swatches-for-woocommerce' ), $url ), 400 );
 		}
 
 		return $id;

@@ -59,9 +59,9 @@ class THWVSF_Admin_Settings_Pro extends THWVSF_Admin_Settings {
 						<h3 class="trydemo-heading">Transform Your Product Pages with These Pro-Only Benefits</h3>
 						<p class="try-demo-desc">Variation Swatches Pro offers advanced styling capabilities to enrich your product pages with a more engaging and vibrant visual experience. Don’t hold back — take your product pages to the next level right now!.</p>
 						<div class="th-pro-btn">
-							<a class="btn-get-pro" onclick="this.classList.add('clicked')" href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener noreferrer" ><?php echo __('Get Pro', 'woo-extra-product-options');?></a>
+							<a class="btn-get-pro" onclick="this.classList.add('clicked')" href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html__('Get Pro', 'product-variation-swatches-for-woocommerce'); ?></a>
 							<a class="btn-try-demo" href="https://flydemos.com/wpvs/?utm_source=wpvs_free&utm_medium=banner&utm_campaign=try_demo"
-							target="_blank" rel="noopener noreferrer" onclick="this.classList.add('clicked')" ><?php echo __('Try Demo', 'woo-extra-product-options');?></a></div>
+							target="_blank" rel="noopener noreferrer" onclick="this.classList.add('clicked')" ><?php echo esc_html__('Try Demo', 'product-variation-swatches-for-woocommerce');?></a></div>
 						<!-- <img class="vedio" src="" alt="no img">  ADD vedio tutorial-->
 					</div>
 					<section class="th-wvs-key-feature">
@@ -357,7 +357,7 @@ class THWVSF_Admin_Settings_Pro extends THWVSF_Admin_Settings {
 							<h3 class="switch-to-pro-heading">Switch to Pro version and be a part of our limitless features</h3>
 							<p>Switch to Pro and unlock access to a few of the most sought-after features on your product page and experience one-of-a-kind personalization like never before.</p>
 							<!-- <div class="th-button-get-pro-link"> -->
-								<a class="button-get-pro" href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener noreferrer" onclick="this.classList.add('clicked')"><?php echo __('Get Pro', 'woo-extra-product-options');?></a> 
+								<a class="button-get-pro" href="<?php echo esc_url($url); ?>" target="_blank" rel="noopener noreferrer" onclick="this.classList.add('clicked')"><?php echo esc_html__('Get Pro', 'product-variation-swatches-for-woocommerce');?></a> 
 							<!-- </div> -->
 							
 						</div>

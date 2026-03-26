@@ -94,11 +94,11 @@ class THWVSF_Admin_Settings_Attributes extends THWVSF_Admin_Settings {
 
         $Swatch_types = array(
 
-          'select' => esc_html__( 'Default/Select', 'woocommerce-product-variation-swatches' ),
-          'color'  => esc_html__( 'Color', 'woocommerce-product-variation-swatches' ),
-          'image'  => esc_html__( 'Image', 'woocommerce-product-variation-swatches' ),
-          'label'  => esc_html__( 'Label/Button', 'woocommerce-product-variation-swatches' ),
-          'radio'  => esc_html__( 'Radio', 'woocommerce-product-variation-swatches' ),
+          'select' => esc_html__( 'Default/Select', 'product-variation-swatches-for-woocommerce' ),
+          'color'  => esc_html__( 'Color', 'product-variation-swatches-for-woocommerce' ),
+          'image'  => esc_html__( 'Image', 'product-variation-swatches-for-woocommerce' ),
+          'label'  => esc_html__( 'Label/Button', 'product-variation-swatches-for-woocommerce' ),
+          'radio'  => esc_html__( 'Radio', 'product-variation-swatches-for-woocommerce' ),
           
         );		
 		return array(
@@ -121,6 +121,7 @@ class THWVSF_Admin_Settings_Attributes extends THWVSF_Admin_Settings {
 	public function render_messages(){
 
 		if(isset($_POST['attribute_save_settings'])){
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo $this->update_attributes();
 		}
 		if(isset($_POST['attribute_reset_settings'])){
@@ -168,10 +169,11 @@ class THWVSF_Admin_Settings_Attributes extends THWVSF_Admin_Settings {
 						?>
 		    			<div class="thwvs-template-box thwvs-attr-box search-elements" data-search_name="<?php echo esc_attr($label); ?>">
 		    				<div class="thwvs-template-name">
+									<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		    						<img class="thwvs-dot-element" src="<?php echo THWVSF_ASSETS_URL_ADMIN.'images/dots.svg'; ?>"/>
-		    					<p class="thwvs-label"><?php echo $label; ?></p>
-
-			    				<div class="thwvs-edit-element" data-block-name="<?php echo $name; ?>" data-terms="<?php echo $term_props_json; ?>" onclick = 'thwvsfOpenAttributeForm(this,"<?php echo $attr_id; ?>", "<?php echo $design_type; ?>")'>
+		    					<p class="thwvs-label"><?php echo esc_html( $label ); ?></p>
+								<?php // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			    				<div class="thwvs-edit-element" data-block-name="<?php echo esc_attr( $name ); ?>" data-terms="<?php echo $term_props_json; ?>" onclick = 'thwvsfOpenAttributeForm(this,"<?php echo esc_attr( $attr_id ); ?>", "<?php echo esc_attr( $design_type ); ?>")'>
 
 			    					<span class="icon icon-edit" > </span>
 							
@@ -179,7 +181,7 @@ class THWVSF_Admin_Settings_Attributes extends THWVSF_Admin_Settings {
 								<p class="attr-type-label"> <?php echo esc_html( wc_get_attribute_type_label($type) ); ?></p>
 							</div>
 							<div class="thwvs-design-name">
-								<p><?php echo $design_name; ?></p>
+								<p><?php echo esc_html( $design_name ); ?></p>
 							</div>
 		    			</div>
 	    				<?php 
@@ -189,11 +191,11 @@ class THWVSF_Admin_Settings_Attributes extends THWVSF_Admin_Settings {
 	    		?>
 	    		<div class="thwvs-template-box thwvs-add-attribute-box">
 
-	    			<a href="<?php echo admin_url('edit.php?post_type=product&page=product_attributes');?>">
+	    			<a href="<?php echo esc_url( admin_url('edit.php?post_type=product&page=product_attributes') ); ?>">
 		    				
     				<div class="thwvs-template-name thwvs-add-design-name">	
-    					<p class="thwvs-add-new-label"><?php esc_html_e('Add/Edit/Delete Product Attributes here','woocommerce-product-variation-swatches'); ?> </p>
-    					<div class="thwvs-manage-attribute"><?php esc_html_e('Manage Attribute','woocommerce-product-variation-swatches'); ?> </div>
+    					<p class="thwvs-add-new-label"><?php esc_html_e('Add/Edit/Delete Product Attributes here','product-variation-swatches-for-woocommerce'); ?> </p>
+    					<div class="thwvs-manage-attribute"><?php esc_html_e('Manage Attribute','product-variation-swatches-for-woocommerce'); ?> </div>
 					</div>
 					</a>
     			</div>
@@ -216,7 +218,7 @@ class THWVSF_Admin_Settings_Attributes extends THWVSF_Admin_Settings {
 					<form method="post" id="thwvs_attribute_form" action="">
 						<?php wp_nonce_field( 'thwvsf_attribute_settings','thwvsf_security' ); ?>
 						<div class="form-pp-content pp-content pp-attr-content">
-							<img class="thwvs-close-element pp-close" src="<?php echo THWVSF_ASSETS_URL_ADMIN.'images/popup-arrow.svg'; ?>" onclick="thwvsfCloseDesignPopup(this)"/>
+							<img class="thwvs-close-element pp-close" src="<?php echo esc_url( THWVSF_ASSETS_URL_ADMIN.'images/popup-arrow.svg' ); ?>" onclick="thwvsfCloseDesignPopup(this)"/>
 							<p class="attr-label">attribute</p>
 
 							<div class="form-container form-edit-attr">
@@ -231,9 +233,9 @@ class THWVSF_Admin_Settings_Attributes extends THWVSF_Admin_Settings {
 							</div>
 						</div> 
 						<div class="footer thwvs-attr-actions btn-toolbar">
- 							<input type="submit" class="save-btn btn-primary-alt" name="attribute_save_settings" class="button-primary" value="<?php _e('Save', 'woocommerce-product-variation-swatches'); ?>">
+ 							<input type="submit" class="save-btn btn-primary-alt" name="attribute_save_settings" class="button-primary" value="<?php esc_html_e('Save', 'product-variation-swatches-for-woocommerce'); ?>">
 					
- 							<input type="submit" class="reset-btn btn-primary-alt" name="attribute_reset_settings" class="button-primary" value="<?php _e('Reset', 'woocommerce-product-variation-swatches'); ?>" onclick="return confirm('Are you sure you need to reset the Attribute? Once the attribute is reset, all the changes you have made will be reset to its original state with the default swatch type.');">	
+ 							<input type="submit" class="reset-btn btn-primary-alt" name="attribute_reset_settings" class="button-primary" value="<?php esc_html_e('Reset', 'product-variation-swatches-for-woocommerce'); ?>" onclick="return confirm('Are you sure you need to reset the Attribute? Once the attribute is reset, all the changes you have made will be reset to its original state with the default swatch type.');">	
 
 						</div>
 					</form>
@@ -345,13 +347,13 @@ class THWVSF_Admin_Settings_Attributes extends THWVSF_Admin_Settings {
 			$result1 = isset($_POST['i_type']) ? $this->save_global_attribute_settings($id, $attr_type): '';
  			$result2 = $this->save_design_change($id, $design_type);
 			if($result1 === $id ||  $result2 === true ) {
-				echo '<div class="updated notice notice-success is-dismissible thwvs-msg-updated thwvs-msg"><p>'. __('Your changes were saved.','woocommerce-product-variation-swatches') .'</p></div>';
+				echo '<div class="updated notice notice-success is-dismissible thwvs-msg-updated thwvs-msg"><p>'. esc_html__('Your changes were saved.','product-variation-swatches-for-woocommerce') .'</p></div>';
 			}else {
-				echo '<div class="error notice is-dismissible thwvs-msg"><p>'. __('Your changes were not saved due to an error (or you made none!).','woocommerce-product-variation-swatches') .'</p></div>';
+				echo '<div class="error notice is-dismissible thwvs-msg"><p>'. esc_html__('Your changes were not saved due to an error (or you made none!).','product-variation-swatches-for-woocommerce') .'</p></div>';
 			}
  			
 		} catch (Exception $e) {
-			echo '<div class="error notice is-dismissible thwvs-msg"><p>'. __('Your changes were not saved due to an error.','woocommerce-product-variation-swatches') .'</p></div>';
+			echo '<div class="error notice is-dismissible thwvs-msg"><p>'. esc_html__('Your changes were not saved due to an error.','product-variation-swatches-for-woocommerce') .'</p></div>';
 		}
 	}
 
@@ -427,9 +429,9 @@ class THWVSF_Admin_Settings_Attributes extends THWVSF_Admin_Settings {
 		$result2     = isset($_POST['i_type']) ? $this->save_global_attribute_settings($id, $attr_type): '';
 		
 		if ($result1 === $id || $result2 == true) {
-			echo '<div class="updated notice notice-success is-dismissible thwvs-msg-updated thwvs-msg"><p>'. __('Attributes Successfully Reset..','woocommerce-product-variation-swatches') .'</p></div>';
+			echo '<div class="updated notice notice-success is-dismissible thwvs-msg-updated thwvs-msg"><p>'. esc_html__('Attributes Successfully Reset..','product-variation-swatches-for-woocommerce') .'</p></div>';
 		} else {
-			echo '<div class="error notice is-dismissible thwvs-msg"><p>'. __('Your changes were not saved due to an error (or you made none!).','woocommerce-product-variation-swatches') .'</p></div>';
+			echo '<div class="error notice is-dismissible thwvs-msg"><p>'. esc_html__('Your changes were not saved due to an error (or you made none!).','product-variation-swatches-for-woocommerce') .'</p></div>';
 		}
 	}
 
