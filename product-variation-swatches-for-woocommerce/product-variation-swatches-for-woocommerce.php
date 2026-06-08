@@ -3,7 +3,7 @@
  * Plugin Name:       Product Variation Swatches for Woocommerce
  * Plugin URI:        https://themehigh.com/product/woocommerce-product-variation-swatches
  * Description:       Product Variation Swatches for WooCommerce lets you add variation swatches for variable product attributes in your WooCommerce online store.
- * Version:           2.4.3
+ * Version:           2.4.4
  * Author:            ThemeHigh
  * Author URI:        https://themehigh.com/
  *
@@ -12,7 +12,7 @@
  * 
  * Requires Plugins: woocommerce
  * WC requires at least: 4.0.0
- * WC tested up to: 10.6
+ * WC tested up to: 10.8
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
@@ -31,7 +31,7 @@ if (!function_exists('is_woocommerce_active')){
 }
 
 if(is_woocommerce_active()) {
-	define('THWVSF_VERSION', '2.4.3');
+	define('THWVSF_VERSION', '2.4.4');
 	!defined('THWVSF_FILE') && define('THWVSF_FILE', __FILE__);
 	!defined('THWVSF_PATH') && define('THWVSF_PATH', plugin_dir_path( __FILE__ ));
 	!defined('THWVSF_URL') && define('THWVSF_URL', plugins_url( '/', __FILE__ ));

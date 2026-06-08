@@ -2,16 +2,16 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Product Variation Swatches for Woocommerce 2.4.3\n"
+"Project-Id-Version: Product Variation Swatches for Woocommerce 2.4.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/product-variation-swatches-for-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-03-23T12:09:29+00:00\n"
+"POT-Creation-Date: 2026-06-01T10:48:47+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.11.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: product-variation-swatches-for-woocommerce\n"
 
 #. Plugin Name of the plugin
@@ -347,12 +347,14 @@ msgstr ""
 #. Translators: %d is the attribute number.
 #: admin/class-thwvsf-admin-swatch-import-export.php:57
 #: admin/class-thwvsf-admin-swatch-import-export.php:239
+#, php-format
 msgid "Attribute %d type"
 msgstr ""
 
 #. Translators: %d is the attribute number.
 #: admin/class-thwvsf-admin-swatch-import-export.php:59
 #: admin/class-thwvsf-admin-swatch-import-export.php:241
+#, php-format
 msgid "Attribute %d swatch(s)"
 msgstr ""
 
@@ -369,10 +371,12 @@ msgid "Attribute swatch(s)"
 msgstr ""
 
 #: admin/class-thwvsf-admin-swatch-import-export.php:589
+#, php-format
 msgid "Not able to attach \"%s\"."
 msgstr ""
 
 #: admin/class-thwvsf-admin-swatch-import-export.php:599
+#, php-format
 msgid "Unable to use image \"%s\"."
 msgstr ""
 
@@ -432,6 +436,7 @@ msgid "Label"
 msgstr ""
 
 #: admin/class-thwvsf-admin.php:564
+#, php-format
 msgid "Add new %s"
 msgstr ""
 

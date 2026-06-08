@@ -1,0 +1,177 @@
+== Changelog ==
+= 2.4.4 =
+* Added WooCommerce 10.8 compatibility.
+* Added WordPress 7.0 compatibility.
+
+= 2.4.3 =
+* Improved overall security and stability.
+* Added WooCommerce 10.6 compatibility.
+* Added WordPress 6.9 compatibility.
+
+= 2.4.2 =
+* Added WooCommerce 10.2 compatibility.
+
+= 2.4.1 =
+* Improved accessibility for swatches, Made swatches navigable and selectable using the keyboard (e.g., Tab and arrow keys), ensuring compliance with accessibility standards
+* Added WooCommerce 9.9 compatibility.
+* Added WordPress 6.8 compatibility.
+
+= 2.4.0 =
+* Added WooCommerce 9.7 compatibility.
+* Improved labels and enhanced user experience.
+
+= 2.3.9 =
+* Added WooCommerce 9.4 compatibility.
+* Added WordPress 6.7 compatibility.
+
+= 2.3.8 =
+* Added WooCommerce 9.2 compatibility.
+* Added WordPress 6.6 compatibility.
+
+= 2.3.7 =
+* Added WooCommerce 8.9 compatibility.
+* Added WordPress 6.5 compatibility.
+
+= 2.3.6 =
+* Added WooCommerce 8.7 compatibility.
+
+= 2.3.5 =
+* Added WordPress 6.4 compatibility.
+* Added WooCommerce 8.3 compatibility.
+
+= 2.3.4 =
+* Added WordPress 6.3 compatibility.
+* Added WooCommerce 8.0 compatibility.
+
+= 2.3.3 =
+* Added compatibility with HPOS(High-Performance order storage).
+* Added WordPress 6.2 compatibility.
+* Added WooCommerce 7.7 compatibility.
+
+= 2.3.2 =
+* Improved the labels.
+* Added a link to the 'Attributes' settings page that directs users to the plugin's settings page.
+* Added WooCommerce 7.4 compatibility.
+
+= 2.3.1 =
+* Fixed attribute-related issues in different languages.
+* Added quick links in the plugin settings page and integrated with looped-in for idea submission.
+* Added WooCommerce 7.2 compatibility.
+* Added WordPress 6.1 compatibility.
+
+= 2.3.0 =
+* Added Compatibility with Woodmart, Porto, Kadence, Motor, and Enfold themes. 
+* Added Compatibility with Pi-direct checkout plugin. 
+* Added WooCommerce 6.9 compatibility.
+
+= 2.2.0 =
+* Added compatibility with [WooCommerce Product Bundles](https://woocommerce.com/products/product-bundles/) plugin.
+* Added compatibility with [WooCommerce Composite Products](https://woocommerce.com/products/composite-products/) plugin.
+* Added WooCommerce 6.8 compatibility.
+
+= 2.1.0 =
+* Added a new feature to allow users to import and export variation swatches along with WooCommerce default product import-export.
+* Added WooCommerce 6.6 compatibility.
+
+= 2.0.9 =
+* Added WooCommerce 6.5.1 compatibility.
+* Added WordPress 6.0 compatibility.
+
+= 2.0.8 =
+* Added WooCommerce 6.3.1 compatibility.
+* Added filter for variation separator.
+* Added REST API support.
+
+= 2.0.7 =
+* Added swatches on the additional info tab for simple products.
+* Added WooCommerce 6.1.0 compatibility.
+* Added lazy loading for image swatch type.
+* Added swatches as a dropdown feature.
+
+= 2.0.6 =
+* Added an option for displaying the swatches in the Additional information tab.
+
+= 2.0.5 =
+* Added  WPC Smart Quick View for woocommerce by WPClever  compatibility.
+
+= 2.0.4 =
+* Fixed the issue of out-of-stock behavior of default selected variations.
+* Fixed the issue of selected attribute labels not shown for default selected variations. 
+* Added WooCommerce 5.9.0 compatibility.
+* Added new selection styles for color, image and label swatches.
+
+= 2.0.3 =
+* Fixed the Flatsome quick view issue.
+* Added Radio button as a new variation swatch type.
+* Added WooCommerce 5.6.0 compatibility.
+* Added WordPress 5.8 compatibility.
+
+= 2.0.2 =
+* Added product attributes tab in the Swatches Options settings.
+* Added terms settings option in the product attributes tab.
+* Added an option to show the selected variation name beside the attribute label.
+* Added WooCommerce version - 5.4.1 compatibility.
+
+
+= 2.0.1 =
+* Fixed issue in the Custom Attribute Settings
+
+= 2.0.0 =
+* Settings screen UI improved.
+* Added Swatches Designs feature to create multiple sets of swatch designs and assign the same to individual attributes.
+* WooCommmerce 5.2.2 compatibility added.
+
+= 1.2.0 =
+* Fixed issue of custom attribute tab expanding for multiple word attribute.
+* Fixed the Attribute link used in the local attribute area.
+* Fixed issue default variation selection while loading the page for local attributes.
+* Removed multiple id used in the plugin.
+* Added OceanWP quick view compatibility.
+* Improved the last active tab opened in the admin settings.
+* WordPress 5.6 style issue corrected for buttons.
+* WooCommerce 4.8.0 compatibility added.
+
+= 1.1.1 =
+* Added missing alt attribute to all image tag used in the plugin.
+* WooCommmerce 4.7.0 compatibility added.
+
+= 1.1.0 =
+* Settings screen UI improved.
+* New option to easily convert all the default swatches to label swatches.
+* New label specific settings.
+* New options to style active and hover behaviour for a variation
+* New options to set out of stock behaviour.
+* Added Ajax threshold settings.
+* Added clear on reselect settings.
+* Added option for disabling the plugin style sheet.
+* Added option for adding swatches type the local attributes in the single product page.
+* WooCommmerce 4.5.2 compatibility added.
+
+= 1.0.7 =
+* WooCommmerce 4.3.0 compatibility added.
+
+= 1.0.6 =
+* WooCommmerce 4.0.1 compatibility added.
+
+= 1.0.5 =
+* WooCommmerce 3.9.1 compatibility added.
+
+= 1.0.4 =
+* Added compatibility with WordPress 5.3.0 and WooCommmerce 3.8.0.
+* Added compatibility with OceanWP theme.
+* Added compatibility with Hestia theme.
+* Added Blur style for unavailable variation.
+* Added Compatibility with bundled product plugin By WPclever.net.
+* Fixed issue with Flatsome quick view.
+
+= 1.0.3 =
+* WooCommerce compatible version updated.
+
+= 1.0.2 =
+* WooCommerce version 3.6.1 compatibility added.
+
+= 1.0.1 =
+* Swatch styles improved.
+
+= 1.0.0 =
+* Initial Release
